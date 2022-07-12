@@ -2,8 +2,7 @@
   "type": "module",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js",
-    "build":  "./node_modules/.bin/netlify-lambda build server.js"
+    "start": "nodemon server.js"
   },
   "dependencies": {
     "axios": "^0.27.2",
