@@ -18,6 +18,7 @@ import Chat from "./models/chatSchema.js"
 import CMessage from "./models/CMessageModel.js"
 import Forum from "./models/ForumModel.js"
 import locationFinder from "./middleware/locationFinder.js";
+import ServerlessHttp from "serverless-http"
 
 export function connect() {
   const { DB_USER, DB_PASS, DB_HOST, DB_NAME } = process.env;
@@ -281,7 +282,7 @@ app.put("/posts/addComment/:id", checkAuth, requestValidator(commentValidator), 
 
 // Global Error Handler:
 app.use((error, req, res, next)=>{
-    console.log("GlobalError",error);
+    console.log("GlobalError",error); 
     res.status(error.status || 500).send({
         error: error.message || error.errors ||"Something went wrong"
     })
@@ -290,3 +291,5 @@ app.use((error, req, res, next)=>{
 app.listen(process.env.PORT, () => {
   console.log("Server listening to " + process.env.PORT);
 });
+
+module.exports.handler=ServerlessHttp(app)
