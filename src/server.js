@@ -292,4 +292,6 @@ app.listen(process.env.PORT, () => {
   console.log("Server listening to " + process.env.PORT);
 });
 
+
+module.exports = app;
 module.exports.handler=ServerlessHttp(app)
