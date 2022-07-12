@@ -1,0 +1,129 @@
+@url = http://localhost:9000
+
+
+GET {{url}}
+
+### POST new User:
+Post {{url}}/user/create
+Content-Type: application/json
+
+{
+    "name": "UWE",
+    "familyName": "Baumann",
+    "dateOfBirth": "2012-01-23",
+    "email":"uwe@jepleting.de",
+    "password":"aA@123456",
+    "userName":"TAJB",
+    "avatar":"MongoPic",
+    "gender": "♂️",
+    
+
+    "interests": [{"value":"Campen","label":"Campen"}]
+}
+### GET ALL Users:
+GET {{url}}/users/listAll
+
+### GET certain User:
+POST {{url}}/user/login
+Content-Type: application/json
+
+{
+    "email":"maze1@online.de",
+    "password":"aA@123456"
+}
+
+### DELETE USER
+DELETE {{url}}/user/delete
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MmM2YTQ1MDk0MWY0NmY5YzVhYTBkYzQiLCJpYXQiOjE2NTcxODU0MTJ9.o-HZVz2HGUnXOgn0AWxpFKhs5UCLnYt-i9YDZRcFquc
+
+###
+# PUT http://localhost:9000/updateProfile
+# Content-Type: application/json
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2Mjk1MWJhM2IyMTkxMjZkZmQ1YWNkZmQiLCJpYXQiOjE2NTQwMDI4NzB9.gOD6Zg9F9xyiYxEwHapG1Uxp2X6lcJTAi6KpYk5qLHM
+
+### Find Profile:
+GET {{url}}/user/listAll
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2Mjk3NGEyOTE2YTQ0MjBjYjE1OWNiOTEiLCJpYXQiOjE2NTQwODIxODR9.CnQbS1msULwicIzEv4rsMIQ8xluzRo1gcvFcUROb10U
+
+### Update Profile:
+PUT {{url}}/updateProfile
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2Mjk2MTI5ZGI2NjkxZGZhMzlhYzZiMmEiLCJpYXQiOjE2NTQwMDM5OTV9.8PSDnl9fF-3Fjtrh6APGVI5SGJrDGSRzbVWeb9evgEo
+
+{
+    "email":"eumili@enchen.de",
+    "password":"123alskjmvlkaRT:@"
+}
+
+### MESSAGE PART
+### POST Message:
+POST {{url}}/message/create
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2Mjk3YTk5NDQzMzY4MTAzOGE1NWFkYTMiLCJpYXQiOjE2NTQxMDY1Njd9.SVMym5bWXiYop3gV5HTng03mwafcIq43vzRgHDnS4Xc
+
+{
+    "author": "6297a994433681038a55ada3",
+    "content": "Message in message",
+    "recipient": "62961c6e7ab347678994e6c8",
+    "subject": "Message"
+}
+
+### Messages List:
+GET {{url}}/messageList
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2Mjk3YTk5NDQzMzY4MTAzOGE1NWFkYTMiLCJpYXQiOjE2NTQxMDY1Njd9.SVMym5bWXiYop3gV5HTng03mwafcIq43vzRgHDnS4Xc
+
+### User Message list:
+GET {{url}}/message/find
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2Mjk3YTk5NDQzMzY4MTAzOGE1NWFkYTMiLCJpYXQiOjE2NTQxMDY1Njd9.SVMym5bWXiYop3gV5HTng03mwafcIq43vzRgHDnS4Xc
+
+### DELETE Message:
+DELETE {{url}}/message/629526a45abae0bce2be8c2c
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2Mjk2MTI5ZGI2NjkxZGZhMzlhYzZiMmEiLCJpYXQiOjE2NTQwMDM5OTV9.8PSDnl9fF-3Fjtrh6APGVI5SGJrDGSRzbVWeb9evgEo
+
+### Chat POST:
+POST {{url}}/chat/add
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2Mjk2MWEyNDdhYjM0NzY3ODk5NGU2YzUiLCJpYXQiOjE2NTY0ODk5NTB9.5Xzb3Ge5btneoCHsPbBeO9XA6wA4vLOLYMlUS1n3N54
+
+{
+    "user": "62961c6e7ab347678994e6c8",
+    "content": "Good by guys!",
+    "member": "62a1e7ef285f86c8cb71dbb0"
+}
+### Look for Chats
+GET {{url}}/chats
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2Mjk2MWEyNDdhYjM0NzY3ODk5NGU2YzUiLCJpYXQiOjE2NTY0ODk5NTB9.5Xzb3Ge5btneoCHsPbBeO9XA6wA4vLOLYMlUS1n3N54
+
+### Post into Chats
+POST {{url}}/chats
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2Mjk2MWM2ZTdhYjM0NzY3ODk5NGU2YzgiLCJpYXQiOjE2NTUyMTI4MjF9.CS38u_61D3OKaD48gLuxQaBYi8j7MwHKELthWtt1NdU
+
+{
+    "recipient":"6297a994433681038a55ada3",
+    "content":"Cynthia to Torge from Backend"
+}
+
+### Check Messagage
+POST {{url}}/messages
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2Mjk2MWM2ZTdhYjM0NzY3ODk5NGU2YzgiLCJpYXQiOjE2NTUyMTI4MjF9.CS38u_61D3OKaD48gLuxQaBYi8j7MwHKELthWtt1NdU
+
+{
+    "chatId":"62b1db81ee6333c431d893b1"
+}
+
+### TESTING Check Messagage
+GET {{url}}/messages/test
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2Mjk2MWM2ZTdhYjM0NzY3ODk5NGU2YzgiLCJpYXQiOjE2NTUyMTI4MjF9.CS38u_61D3OKaD48gLuxQaBYi8j7MwHKELthWtt1NdU
+
+{
+    "chatId":"62b2b85049af70b953ec3be4"
+}
